@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unifi 
+  labels:
+    app: unifi 
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: unifi 
+  template:
+    metadata:
+      labels:
+        app: unifi 
+    spec:
+      volumes:
+      - name: unifi-config 
+        persistentVolumeClaim:
+          claimName: local-path-pvc 
+      containers:
+      - name: unifi 
+        image: linuxserver/unifi-controller:latest 
+        ports:
+          - containerPort: 3478
+            protocol: UDP
+          - containerPort: 10001
+            protocol: UDP
+          - containerPort: 5514
+            protocol: UDP
+          - containerPort: 8080
+          - containerPort: 8081
+          - containerPort: 8443
+          - containerPort: 8843
+          - containerPort: 8880
+          - containerPort: 6789
+        volumeMounts:
+        - name: unifi-config
+          mountPath: /config
+        env:
+          - name: PUID
+            value: "1000"
+          - name: GUID
+            value: "1000"

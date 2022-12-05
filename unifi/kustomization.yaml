@@ -1,0 +1,13 @@
+resources:
+
+# Ingress
+- unifi-ingress.yaml
+ 
+# Services
+- unifi-service.yaml
+
+# Persistent Volume Claim
+- unifi-pvc.yaml
+
+# Deployments
+- unifi-deployment.yaml
