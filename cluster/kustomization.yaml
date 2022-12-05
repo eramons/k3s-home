@@ -1,0 +1,8 @@
+resources:
+
+# cert-manager CRDs
+# https://github.com/cert-manager/cert-manager/releases/download/v1.10.0/cert-manager.crds.yaml
+# cert-manager installed using helm
+
+# clusterissuer
+- clusterissuer.yaml

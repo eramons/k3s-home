@@ -1,0 +1,14 @@
+controller:
+  hostNetwork: true
+  kind: DaemonSet
+  service:
+    enabled: false
+  admisionWebhooks:
+    enabled:false
+tcp:
+  8080: "default/unifi:8080"
+  6789: "default/unifi:6789"
+udp:
+  10001: "default/unifi:10001"
+  3478: "default/unifi:3478"
+  5514: "default/unifi:5514" 
